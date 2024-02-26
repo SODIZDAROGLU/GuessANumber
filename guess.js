@@ -1,5 +1,5 @@
 const msgEl = document.getElementById('msg');
-const startBtn = document.getElementById('start-btn'); // Get the start button
+const startBtn = document.getElementById('start-btn'); 
 const randomNum = getRandomNumber();
 
 console.log('Number', randomNum);
@@ -60,12 +60,10 @@ function getRandomNumber(){
 
 startBtn.addEventListener('click', () => {
     startGame();
-   // startBtn.disabled = true; // Optionally disable the start button after starting the game
+  
 });
 
-//recognition.addEventListener('result', onSpeak);
 
-//recognition.addEventListener('end', () => recognition.start());
 
 document.body.addEventListener('click', (e) => {
     if(e.target.id == `play-again`) {
