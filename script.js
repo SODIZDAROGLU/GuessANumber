@@ -49,7 +49,7 @@ function wordToNumber(word) {
 };
 
 function checkNumber(msg){
- const num = +msg;
+ let num = +msg;
 
  if(Number.isNaN(num)){
     // If conversion fails, try converting from word to number
