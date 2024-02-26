@@ -32,7 +32,7 @@ function writeMessage(msg){
 }
 
 function wordToNumber(word) {
-    let numberWords = {
+    const numberWords = {
         'zero': 0,
         'one': 1,
         'two': 2,
@@ -50,7 +50,7 @@ function wordToNumber(word) {
 
 function checkNumber(msg){
  let num = +msg;
-
+debugger
  if(Number.isNaN(num)){
     // If conversion fails, try converting from word to number
     num = wordToNumber(msg);
