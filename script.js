@@ -39,7 +39,7 @@ function checkNumber(msg){
  }
 
  if(num > 100 || num < 1){
-    msgEl.innerHTML += `<div>Number must be beetween 1 and 100</div>`;
+    msgEl.innerHTML += `<div>Number must be beetween 11 and 100</div>`;
     return;
  }
 
@@ -55,7 +55,7 @@ function checkNumber(msg){
 }
 
 function getRandomNumber(){
-    return Math.floor(Math.random() * 100) + 1
+    return Math.floor(Math.random() * 100) + 10
 }
 
 startBtn.addEventListener('click', () => {
