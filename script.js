@@ -31,6 +31,36 @@ function writeMessage(msg){
    `;
 }
 
+
+
+function checkNumber(msg){
+    if(Number.isNaN(msg)){
+       // If conversion fails, try converting from word to number
+       num = wordToNumber(msg);
+   }
+ let num = +msg;
+debugger
+ if(Number.isNaN(num)){
+    msgEl.innerHTML += `<div>That is not a valid number</div>`;
+    return;
+ }
+
+ if(num > 100 || num < 1){
+    msgEl.innerHTML += `<div>Number must be beetween 1 and 100</div>`;
+    return;
+ }
+
+ if(num === randomNum) {
+    document.body.innerHTML = `<h2>Congrats! You have guessed the number! <br><br>I was ${num}</h2>
+    <button class="play-again" id="play-again">Play Again</button>`
+}else if(num > randomNum){
+    msgEl.innerHTML += `<div>GO LOWER</div>`;
+}else{
+    msgEl.innerHTML += `<div>GO HIGHER</div>`;
+}
+    
+}
+
 function wordToNumber(input) {
     debugger
     let lowerCaseWord = input.toLowerCase();
@@ -61,34 +91,6 @@ function wordToNumber(input) {
     }
    
 };
-
-function checkNumber(msg){
-    if(Number.isNaN(msg)){
-       // If conversion fails, try converting from word to number
-       num = wordToNumber(msg);
-   }
- let num = +msg;
-debugger
- if(Number.isNaN(num)){
-    msgEl.innerHTML += `<div>That is not a valid number</div>`;
-    return;
- }
-
- if(num > 100 || num < 1){
-    msgEl.innerHTML += `<div>Number must be beetween 1 and 100</div>`;
-    return;
- }
-
- if(num === randomNum) {
-    document.body.innerHTML = `<h2>Congrats! You have guessed the number! <br><br>I was ${num}</h2>
-    <button class="play-again" id="play-again">Play Again</button>`
-}else if(num > randomNum){
-    msgEl.innerHTML += `<div>GO LOWER</div>`;
-}else{
-    msgEl.innerHTML += `<div>GO HIGHER</div>`;
-}
-    
-}
 
 function getRandomNumber(){
     return Math.floor(Math.random() * 100) + 1
