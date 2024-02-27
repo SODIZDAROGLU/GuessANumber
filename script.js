@@ -32,30 +32,35 @@ function writeMessage(msg){
 }
 
 function wordToNumber(input) {
-    const numberWords = {
-       
-        'one': 1,
-        'two': 2,
-        'three': 3,
-        'four': 4,
-        'five': 5,
-        'six': 6,
-        'seven': 7,
-        'eight': 8,
-        'nine': 9,
-        'ten': 10,
-    };
     const lowerCaseWord = input.toLowerCase();
-
-    console.log("Lowercase word:", lowerCaseWord); // Log lowercase version of the word
-
-    const numberValue = numberWords[lowerCaseWord];
-
-    console.log("Number value:", numberValue); // Log the number value obtained from the object
-
-    return numberValue ?? NaN;
+    switch (lowerCaseWord) {
+        case 'one':
+            return 1;
+        case 'two':
+            return 2;
+        case 'three':
+            return 3;
+        case 'four':
+            return 4;
+        case 'five':
+            return 5;
+        case 'six':
+            return 6;
+        case 'seven':
+            return 7;
+        case 'eight':
+            return 8;
+        case 'nine':
+            return 9;
+        case 'ten':
+            return 10;
+        default:
+            return NaN;
+    }
 };
-
+console.log(wordToNumber("one")); // Output: 1
+console.log(wordToNumber("seven")); // Output: 7
+console.log(wordToNumber("eleven")); // Output: NaN
 function checkNumber(msg){
     if(Number.isNaN(msg)){
        // If conversion fails, try converting from word to number
