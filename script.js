@@ -31,42 +31,8 @@ function writeMessage(msg){
    `;
 }
 
-function convertSpokenNumber(input) {
-    const numberWords = {
-        'zero': 0,
-        "one": 1,
-        "two": 2,
-        "three": 3,
-        "four": 4,
-        "five": 5,
-        "six": 6,
-        "seven": 7,
-        "eight": 8,
-        'nine': 9,
-        'ten': 10,
-    };
-   // Check if the input is a number word
-   if (numberWords.hasOwnProperty(input.toLowerCase())) {
-    return numberWords[input.toLowerCase()];
-   }
-       // If input is not a number word, attempt to parse it as a number
-       const parsedNumber = parseInt(input);
-       if (!isNaN(parsedNumber)) {
-           return parsedNumber;
-       }
-       
-       // If input cannot be converted to a number, return NaN
-       return NaN;
-};
-
 function checkNumber(msg){
- //let num = +msg;
-//debugger
-const num = convertSpokenNumber(msg);
-//  if(Number.isNaN(num)){
-//     // If conversion fails, try converting from word to number
-//     num = wordToNumber(msg);
-// }
+ const num = +msg;
  if(Number.isNaN(num)){
     msgEl.innerHTML += `<div>That is not a valid number</div>`;
     return;
@@ -97,11 +63,10 @@ startBtn.addEventListener('click', () => {
   
 });
 
+
+
 document.body.addEventListener('click', (e) => {
     if(e.target.id == `play-again`) {
         window.location.reload();
     }
 });
-
-
-
