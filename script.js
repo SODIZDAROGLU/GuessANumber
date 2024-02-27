@@ -21,7 +21,7 @@ function onSpeak(e){
     const msg = e.results[0][0].transcript;
     console.log(msg)
     writeMessage(msg);
-    checkNumber(msg);
+    checkNumber(wordToNumber(msg));
 }
 
 function writeMessage(msg){
@@ -35,13 +35,11 @@ function writeMessage(msg){
 
 function checkNumber(msg){
     debugger
-    let r = wordToNumber(msg);
-    console.log(r);
-//     if(Number.isNaN(msg)){
-      
-//        num = wordToNumber(msg);
-//    }
- let num = +r;
+    const num = +msg;
+//     let r = wordToNumber(msg);
+//     console.log(r);
+
+//  let num = +r;
  if(Number.isNaN(num)){
     msgEl.innerHTML += `<div>That is not a valid number</div>`;
     return;
@@ -65,8 +63,12 @@ function checkNumber(msg){
 
 function wordToNumber(input) {
     debugger
-    let lowerCaseWord = input.toLowerCase();
-    console.log("Lowercase word:", lowerCaseWord);
+    if (typeof input === 'string') {
+        console.log("Input is not a string:", input);
+        let lowerCaseWord = input.toLowerCase();
+        
+
+  //  console.log("Lowercase word:", lowerCaseWord);
     switch (lowerCaseWord) {
         case 'one':
             return 1;
@@ -89,8 +91,10 @@ function wordToNumber(input) {
         case 'ten':
             return 10;
         default:
-            return NaN;
+            return input;
     }
+}
+return input;
    
 };
 
