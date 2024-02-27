@@ -45,6 +45,14 @@ p{
 }
 
 img{
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
+}
+
+
+#start-btn {
+    width: 150px; 
+    height: 40px; 
+    font-size: 20px;
+    margin-top: 20px; 
 }

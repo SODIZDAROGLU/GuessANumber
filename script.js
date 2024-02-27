@@ -14,7 +14,7 @@ function startGame() {
     recognition.start();
     recognition.addEventListener('result', onSpeak);
     recognition.addEventListener('end', recognition.start); // Keep listening even after end
-}
+};
 
 
 function onSpeak(e){
@@ -22,7 +22,7 @@ function onSpeak(e){
     console.log(msg)
     writeMessage(msg);
     checkNumber(wordToNumber(msg));
-}
+};
 
 function writeMessage(msg){
     const numberWords = {
@@ -42,40 +42,37 @@ function writeMessage(msg){
     <div>You said:</div>
     <span class="box">${numericMsg}</span>
    `;
-}
+};
 
 
 
 function checkNumber(msg){
-    debugger
+   
     const num = +msg;
-//     let r = wordToNumber(msg);
-//     console.log(r);
 
-//  let num = +r;
- if(Number.isNaN(num)){
-    msgEl.innerHTML += `<div>That is not a valid number</div>`;
-    return;
- }
+    if(Number.isNaN(num)){
+        msgEl.innerHTML += `<div>That is not a valid number</div>`;
+        return;
+    }
 
- if(num > 100 || num < 1){
-    msgEl.innerHTML += `<div>Number must be beetween 1 and 100</div>`;
-    return;
- }
+    if(num > 100 || num < 1){
+        msgEl.innerHTML += `<div>Number must be beetween 1 and 100</div>`;
+        return;
+    }
 
- if(num === randomNum) {
-    document.body.innerHTML = `<h2>Congrats! You have guessed the number! <br><br>I was ${num}</h2>
-    <button class="play-again" id="play-again">Play Again</button>`
-}else if(num > randomNum){
-    msgEl.innerHTML += `<div>GO LOWER</div>`;
-}else{
-    msgEl.innerHTML += `<div>GO HIGHER</div>`;
-}
+    if(num === randomNum) {
+        document.body.innerHTML = `<h2>Congrats! You have guessed the number! <br><br>I was ${num}</h2>
+        <button class="play-again" id="play-again">Play Again</button>`
+    }else if(num > randomNum){
+        msgEl.innerHTML += `<div>GO LOWER</div>`;
+    }else{
+        msgEl.innerHTML += `<div>GO HIGHER</div>`;
+    }
     
-}
+};
 
 function wordToNumber(input) {
-    debugger
+  
     if (typeof input === 'string') {
         console.log("Input is not a string:", input);
         let lowerCaseWord = input.toLowerCase();
@@ -113,11 +110,11 @@ function wordToNumber(input) {
 
 function getRandomNumber(){
     return Math.floor(Math.random() * 100) + 1
-}
+};
 
 startBtn.addEventListener('click', () => {
     startGame();
-  
+    startBtn.disabled = true;
 });
 
 document.body.addEventListener('click', (e) => {
