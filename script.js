@@ -34,12 +34,14 @@ function writeMessage(msg){
 
 
 function checkNumber(msg){
+    debugger
+    let r = wordToNumber(msg);
+    console.log(r);
     if(Number.isNaN(msg)){
        // If conversion fails, try converting from word to number
        num = wordToNumber(msg);
    }
  let num = +msg;
-debugger
  if(Number.isNaN(num)){
     msgEl.innerHTML += `<div>That is not a valid number</div>`;
     return;
