@@ -31,7 +31,7 @@ function writeMessage(msg){
    `;
 }
 
-function wordToNumber(word) {
+function wordToNumber(input) {
     const numberWords = {
        
         'one': 1,
@@ -45,7 +45,15 @@ function wordToNumber(word) {
         'nine': 9,
         'ten': 10,
     };
-    return numberWords[word.toLowerCase()] ?? NaN;
+    const lowerCaseWord = input.toLowerCase();
+
+    console.log("Lowercase word:", lowerCaseWord); // Log lowercase version of the word
+
+    const numberValue = numberWords[lowerCaseWord];
+
+    console.log("Number value:", numberValue); // Log the number value obtained from the object
+
+    return numberValue ?? NaN;
 };
 
 function checkNumber(msg){
