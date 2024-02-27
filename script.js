@@ -74,7 +74,7 @@ function checkNumber(msg){
 function wordToNumber(input) {
   
     if (typeof input === 'string') {
-        console.log("Input is not a string:", input);
+        console.log("Input is a string:", input);
         let lowerCaseWord = input.toLowerCase();
         
         switch (lowerCaseWord) {
