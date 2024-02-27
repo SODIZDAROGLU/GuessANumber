@@ -49,12 +49,12 @@ function wordToNumber(word) {
 };
 
 function checkNumber(msg){
+    if(Number.isNaN(msg)){
+       // If conversion fails, try converting from word to number
+       num = wordToNumber(msg);
+   }
  let num = +msg;
 debugger
- if(Number.isNaN(num)){
-    // If conversion fails, try converting from word to number
-    num = wordToNumber(msg);
-}
  if(Number.isNaN(num)){
     msgEl.innerHTML += `<div>That is not a valid number</div>`;
     return;
