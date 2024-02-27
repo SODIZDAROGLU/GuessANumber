@@ -37,11 +37,11 @@ function checkNumber(msg){
     debugger
     let r = wordToNumber(msg);
     console.log(r);
-    if(Number.isNaN(msg)){
-       // If conversion fails, try converting from word to number
-       num = wordToNumber(msg);
-   }
- let num = +msg;
+//     if(Number.isNaN(msg)){
+      
+//        num = wordToNumber(msg);
+//    }
+ let num = +r;
  if(Number.isNaN(num)){
     msgEl.innerHTML += `<div>That is not a valid number</div>`;
     return;
