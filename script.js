@@ -31,15 +31,37 @@ function writeMessage(msg){
    `;
 }
 
+function wordToNumber(word) {
+    const numberWords = {
+       
+        '1': 1,
+        '2': 2,
+        '3': 3,
+        '4': 4,
+        '5': 5,
+        '6': 6,
+        '7': 7,
+        'eight': 8,
+        'nine': 9,
+        'ten': 10,
+    };
+    return numberWords[word.toLowerCase()] ?? NaN;
+};
+
 function checkNumber(msg){
- const num = +msg;
+ let num = +msg;
+debugger
+ if(Number.isNaN(num)){
+    // If conversion fails, try converting from word to number
+    num = wordToNumber(msg);
+}
  if(Number.isNaN(num)){
     msgEl.innerHTML += `<div>That is not a valid number</div>`;
     return;
  }
 
  if(num > 100 || num < 1){
-    msgEl.innerHTML += `<div>Number must be beetween 11 and 100</div>`;
+    msgEl.innerHTML += `<div>Number must be beetween 1 and 100</div>`;
     return;
  }
 
@@ -55,7 +77,7 @@ function checkNumber(msg){
 }
 
 function getRandomNumber(){
-    return Math.floor(Math.random() * 100) + 10
+    return Math.floor(Math.random() * 100) + 1
 }
 
 startBtn.addEventListener('click', () => {
@@ -63,10 +85,10 @@ startBtn.addEventListener('click', () => {
   
 });
 
-
-
 document.body.addEventListener('click', (e) => {
     if(e.target.id == `play-again`) {
         window.location.reload();
     }
 });
+
+
