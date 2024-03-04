@@ -1,7 +1,9 @@
 const msgEl = document.getElementById('msg');
 const startBtn = document.getElementById('start-btn'); 
+const timerEl = document.getElementById('timer');
 const randomNum = getRandomNumber();
-
+let timeLeft;
+let timerId;
 console.log('Number', randomNum);
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
@@ -14,6 +16,9 @@ function startGame() {
     recognition.start();
     recognition.addEventListener('result', onSpeak);
     recognition.addEventListener('end', recognition.start); // Keep listening even after end
+    startBtn.disabled = true;
+    timeLeft = 5;
+    startTimer();
 };
 
 
@@ -123,4 +128,23 @@ document.body.addEventListener('click', (e) => {
     }
 });
 
+function startTimer() {
+    timerEl.textContent = timeLeft; // Initialize the timer display
 
+    timerId = setInterval(() => {
+        timeLeft--;
+        timerEl.textContent = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(timerId); // Stop the timer
+            startBtn.disabled = false; // Re-enable the start button
+            recognition.stop(); // Optionally stop listening when time is up
+            recognition.removeEventListener('result', onSpeak);
+            recognition.removeEventListener('end', recognition.start);
+      
+        }
+    }, 1000); // Update the timer every second
+}
+
+function refreshPage() {
+    window.location.reload();
+}

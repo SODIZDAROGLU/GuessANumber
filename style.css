@@ -51,8 +51,17 @@ img{
 
 
 #start-btn {
-    width: 150px; 
-    height: 40px; 
-    font-size: 20px;
-    margin-top: 20px; 
+    width: 100px; /* Set the width */
+    height: 50px; /* Set the height to make it square */
+    border-radius: 10px; /* Optional: Rounds the corners */
+    font-size: 16px; /* Text size */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+} 
+
+#refresh{
+    width: 100px; /* Set the width */
+    height: 50px; /* Set the height to make it square */
+    border-radius: 10px; /* Optional: Rounds the corners */
+    font-size: 16px; /* Text size */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
 }
