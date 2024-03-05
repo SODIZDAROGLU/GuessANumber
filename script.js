@@ -17,7 +17,7 @@ function startGame() {
     recognition.addEventListener('result', onSpeak);
     recognition.addEventListener('end', recognition.start); // Keep listening even after end
     startBtn.disabled = true;
-    timeLeft = 5;
+    timeLeft = 10;
     startTimer();
 };
 
